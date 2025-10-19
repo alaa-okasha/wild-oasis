@@ -15,7 +15,7 @@ export async function createEditCabin(newCabin, id) {
   const hasImagePath = newCabin.image?.startsWith?.(
     import.meta.env.VITE_SUPABASE_URL
   );
-  const imageName = `${Math.random()}-${newCabin.image.name}`.replaceAll(
+  const imageName = `${Math.random()}-${newCabin?.image?.name}`.replaceAll(
     "/",
     ""
   );
@@ -34,6 +34,9 @@ export async function createEditCabin(newCabin, id) {
     console.error(error);
     throw new Error("couldn't create the cabin");
   }
+
+  if (hasImagePath) return data;
+
   const { error: storageError } = await supabase.storage
     .from("cabin-images")
     .upload(imageName, newCabin.image);
