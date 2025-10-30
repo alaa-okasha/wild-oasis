@@ -254,10 +254,6 @@ src/
 - Secure file uploads to Supabase storage
 - Environment variables for sensitive data
 
-## 📱 Responsive Design
-
-The application is built with responsive design principles using Styled Components, ensuring a great experience across devices.
-
 ## 🧪 Development Features
 
 - React Query DevTools for debugging
